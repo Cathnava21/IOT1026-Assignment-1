@@ -21,6 +21,7 @@ namespace AssignmentTest
             CollectionAssert.AreEqual(original, result);
             Assert.AreNotSame(original, result);
         }
+        [TestMethod]
         public void ReplicateArray_ArrayWithElements()
         {
             int[] original = new int[] { 1, 2, 3 };
@@ -28,7 +29,7 @@ namespace AssignmentTest
             CollectionAssert.AreEqual(original, result);
             Assert.AreNotSame(original, result);
         }
-
+        [TestMethod]
         public void ReplicateArray_ArrayWithNegativeElements()
         {
             int[] original = new int[] { -1, 2, -3, 0, -999, 100120 };
