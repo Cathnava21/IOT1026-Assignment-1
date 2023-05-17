@@ -9,7 +9,14 @@
         /// <returns>A deep copy of the original array</returns>
         public static int[] ReplicateArray(int[] original)
         {
-            throw new NotImplementedException();
+            // Create a new array with the same size as the original array
+            int[] replicatedArray = new int[original.Length];
+            for (int i = 0; i < original.Length; i++)
+            {
+                // Copy the values from the original array to the replicated array
+                replicatedArray[i] = original[i];
+            }
+            return replicatedArray; // Return the copied array
         }
 
         /// <summary>
@@ -19,7 +26,21 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumber(string text)
         {
-            throw new NotImplementedException();
+            int v = 1;
+            int number = 0;
+            do
+            {
+                try
+                {
+                    number = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (Exception error)
+                {
+                    v = 0;
+                    Console.Write(" (X) Se produjo el siguiente error: {0}", error.Message);
+                }
+            } while (v == 0);
+            return number;
         }
 
         /// <summary>
@@ -32,7 +53,21 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumberInRange(string text, int min, int max)
         {
-            throw new NotImplementedException();
+            int m = 0;
+            int number = 0;
+            do
+            {
+                number = int.Parse(Console.ReadLine());
+                if (number > max && number < min)
+                {
+                    Console.WriteLine($"{number} is not in the specified range. Try again ")
+                }
+                else
+                {
+                    m = 1;
+                }
+            } while (m == 1);
+            return number;
         }
     }
 
@@ -40,7 +75,7 @@
     {
         static void Main()
         {
-            /*
+
             const int Min = 0;
             const int Max = 10;
             const int PrintOffset = 4;
@@ -58,7 +93,6 @@
             // Verify original and replicated array are the same
             for (int index = 0; index < size; ++index)
                 Console.WriteLine($"Original {original[index],-PrintOffset}  {copy[index],4} Copy");
-            */
         }
     }
 }
