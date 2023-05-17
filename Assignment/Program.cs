@@ -30,14 +30,18 @@
             int number = 0;
             do
             {
+                Console.Write(text);
                 try
                 {
+                    //Convert the input data to an integer
                     number = Convert.ToInt32(Console.ReadLine());
+                    v = 1;
                 }
                 catch (Exception error)
                 {
                     v = 0;
-                    Console.Write(" (X) Se produjo el siguiente error: {0}", error.Message);
+                    //Print a error if the type of data is incorrect 
+                    Console.Write(error.Message + "\n");
                 }
             } while (v == 0);
             return number;
@@ -54,20 +58,23 @@
         public static int AskForNumberInRange(string text, int min, int max)
         {
             int m = 0;
-            int number = 0;
+            int arraySize = 0;
             do
             {
-                number = int.Parse(Console.ReadLine());
-                if (number > max && number < min)
+                Console.Write(text);
+                //Convert the input data to an integer
+                arraySize = Convert.ToInt32(Console.ReadLine());
+                if (arraySize > max || arraySize < min)
                 {
-                    Console.WriteLine($"{number} is not in the specified range. Try again ")
+                    //Send a error if the size is not in the range
+                    Console.WriteLine($"{arraySize} is not in the specified range. Try again ");
                 }
                 else
                 {
                     m = 1;
                 }
-            } while (m == 1);
-            return number;
+            } while (m == 0);
+            return arraySize;
         }
     }
 
